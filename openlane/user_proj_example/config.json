@@ -2,10 +2,16 @@
     "DESIGN_NAME": "user_proj_example",
     "DESIGN_IS_CORE": 0,
     "VERILOG_FILES": [
-        "dir::../../verilog/rtl/defines.v",
+        "dir::../../verilog/rtl/cmvn.v",
+        "dir::../../verilog/rtl/kws_fsm.v",
+        "dir::../../verilog/rtl/linear.v",
+        "dir::../../verilog/rtl/relu.v",
+        "dir::../../verilog/rtl/weights_reg_file.v",
         "dir::../../verilog/rtl/user_proj_example.v"
-    ],
+        ],
+    
     "CLOCK_PERIOD": 25,
+    "RUN_LINTER" : 0,
     "CLOCK_PORT": "wb_clk_i",
     "CLOCK_NET": "counter.clk",
     "FP_SIZING": "absolute",

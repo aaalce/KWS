@@ -1,0 +1,17 @@
+{
+    "DESIGN_NAME": "kws_wrapper",
+    "FP_PDN_MULTILAYER": false,
+    "CLOCK_PORT": "wb_clk_i",
+    "CLOCK_PERIOD": 25,
+    "VERILOG_FILES": [
+        "dir::../../verilog/rtl/cmvn.v",
+        "dir::../../verilog/rtl/kws_fsm.v",
+        "dir::../../verilog/rtl/linear.v",
+        "dir::../../verilog/rtl/relu.v",
+        "dir::../../verilog/rtl/weights_reg_file.v",
+        "dir::../../verilog/rtl/kws_wrapper.v"
+    ],
+    "FP_CORE_UTIL": 40,
+    "RUN_LINTER" : 0,
+    "GRT_ADJUSTMENT" : 0.25
+}

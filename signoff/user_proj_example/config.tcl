@@ -149,7 +149,7 @@ set ::env(GPIO_PADS_PREFIX) "sky130_fd_io sky130_ef_io"
 set ::env(GPIO_PADS_VERILOG) " /pdk/sky130A/libs.ref/sky130_fd_io/verilog/sky130_ef_io.v
 "
 set ::env(GPL_CELL_PADDING) "0"
-set ::env(GRT_ADJUSTMENT) "0.3"
+set ::env(GRT_ADJUSTMENT) "0.25"
 set ::env(GRT_ALLOW_CONGESTION) "0"
 set ::env(GRT_ANT_ITERS) "15"
 set ::env(GRT_ANT_MARGIN) "10"
