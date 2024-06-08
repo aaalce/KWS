@@ -3,7 +3,7 @@ module linear (
   input wire rst_n,
   input wire linear_en,
   input wire [31:0] input_data,
-  input wire [9:0] input_addr_in,
+  input wire [9:0] input_addr,
   output reg [31:0] output_data,
   output reg [9:0] output_addr,
   output reg output_valid
@@ -24,7 +24,6 @@ module linear (
   reg signed [63:0] acc_result;
   reg [31:0] input_data_reg;
   reg [31:0] weight_data_reg;
-  reg [9:0] input_addr;
 
   // Counter for input data
   reg [4:0] input_counter;
@@ -49,8 +48,6 @@ module linear (
 
   // Next state logic
   always @(*) begin
-    next_state = current_state;
-
     case (current_state)
       IDLE: begin
         if (linear_en) begin
@@ -60,6 +57,7 @@ module linear (
         end
       end
       MULTIPLY: begin
+        mult_result = $signed(input_data_reg) * $signed(weight_data_reg);
         next_state = ACCUMULATE;
       end
       ACCUMULATE: begin
@@ -70,6 +68,9 @@ module linear (
         end
       end
       OUTPUT: begin
+        next_state = IDLE;
+      end
+      default: begin
         next_state = IDLE;
       end
     endcase
@@ -85,7 +86,6 @@ module linear (
       acc_result <= 64'h0000000000000000;
       input_data_reg <= 32'h00000000;
       weight_data_reg <= 32'h00000000;
-      input_addr <= 10'h000;
     end else begin
       case (current_state)
         IDLE: begin
@@ -96,22 +96,22 @@ module linear (
           acc_result <= 64'h0000000000000000;
           input_data_reg <= input_data;
           weight_data_reg <= weight_data;
-          input_addr <= input_addr_in;
         end
         MULTIPLY: begin
-          mult_result <= $signed(input_data_reg) * $signed(weight_data_reg);
-          input_data_reg <= input_data;
-          weight_data_reg <= weight_data;
+          // No action needed, multiplication is done in the next state logic
         end
         ACCUMULATE: begin
           acc_result <= acc_result + mult_result[55:24]; // Truncate to 1.7.24 format
           input_counter <= input_counter + 1;
-          input_addr <= input_addr + 1;
+          input_data_reg <= input_data;
+          weight_data_reg <= weight_data;
+          $display("Debug: ACCUMULATE - Accumulation result: %d", acc_result + mult_result[55:24]);
         end
         OUTPUT: begin
           output_data <= acc_result[55:24]; // Truncate to 32 bits
-          output_addr <= input_addr - 19;
+          output_addr <= input_addr;
           output_valid <= 1'b1;
+          $display("Debug: OUTPUT - Output data: %d", output_data);
         end
         default: begin
           output_data <= 32'h00000000;
