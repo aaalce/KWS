@@ -2,7 +2,7 @@
     "DESIGN_NAME": "user_project_wrapper",
     "VERILOG_FILES": [
         "dir::../../verilog/rtl/defines.v",
-        "dir::../../verilog/rtl/kws_wrapper.v"
+        "dir::../../verilog/rtl/user_project_wrapper.v"
     ],
     "ROUTING_CORES": 1,
     "CLOCK_PERIOD": 25,
@@ -12,23 +12,22 @@
     "MACRO_PLACEMENT_CFG": "dir::macro.cfg",
     "MAGIC_DEF_LABELS": 0,
     "VERILOG_FILES_BLACKBOX": [
-        "dir::../../verilog/gl/user_proj_example.v"
+        "dir::../../verilog/gl/kws_wrapper.pnl.v"
     ],
-    "EXTRA_LEFS": "dir::../../lef/user_proj_example.lef",
-    "EXTRA_GDS_FILES": "dir::../../gds/user_proj_example.gds",
-    "EXTRA_LIBS": "dir::../../lib/user_proj_example.lib",
-    "EXTRA_SPEFS": [
-        "user_proj_example", 
-        "dir::../../spef/multicorner/user_proj_example.min.spef", 
-        "dir::../../spef/multicorner/user_proj_example.nom.spef", 
-        "dir::../../spef/multicorner/user_proj_example.max.spef"
-    ],
+    "EXTRA_LEFS": "dir::../../lef/kws_wrapper.lef",
+    "EXTRA_GDS_FILES": "dir::../../gds/kws_wrapper.gds",
     "BASE_SDC_FILE": "dir::base_user_project_wrapper.sdc",
-    "IO_SYNC": 0,
+    "IO_SYNC": 1,  
     "MAX_TRANSITION_CONSTRAINT": 1.5,
     "RUN_LINTER": 0,
     "QUIT_ON_SYNTH_CHECKS": 0,
     "FP_PDN_CHECK_NODES": 0,
+    "FP_PDN_IRDROP": 0,
+    "RUN_IRDROP_REPORT": 0,
+    "MAGIC_DEF_LABELS": 0,
+    "FP_PDN_CFG": "dir::pdn.tcl",
+    "FP_PDN_MULTILAYER": 1,
+    "FP_PDN_MACRO_HOOKS": "mprj vccd1 vssd1 VPWR VGND",
     "SYNTH_ELABORATE_ONLY": 1,
     "PL_RANDOM_GLB_PLACEMENT": 1,
     "PL_RESIZER_DESIGN_OPTIMIZATIONS": 0,
