@@ -18,5 +18,6 @@
     "BASE_SDC_FILE": "dir::base_user_proj_example.sdc",
     "RT_MAX_LAYER": "met4",
     "FP_SIZING": "absolute",
-    "DIE_AREA": "0 0 300 300"
+    "DIE_AREA": "0 0 300 300",
+    "FP_PIN_ORDER_CFG": "dir::pin_order.cfg"
 }
