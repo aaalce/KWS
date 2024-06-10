@@ -68,7 +68,7 @@ module kws_wrapper (
         .rst_n(!wb_rst_i),
         .linear_en(linear_en),
         .input_data(cmvn_output_data),
-        .input_addr_in(cmvn_output_addr),
+        .input_addr({5'b00000, cmvn_output_addr}), 
         .output_data(linear_output_data),
         .output_addr(linear_output_addr),
         .output_valid(linear_output_valid)
@@ -121,7 +121,7 @@ module kws_wrapper (
         .clk(wb_clk_i),
         .rst_n(!wb_rst_i),
         .row_addr(wbs_adr_i[8:4]),
-        .col_addr(wbs_adr_i[3:0]),
+        .col_addr({1'b0, wbs_adr_i[3:0]}),
         .data_out(weights_data_out)
     );
 
