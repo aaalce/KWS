@@ -13,5 +13,10 @@
     ],
     "FP_CORE_UTIL": 40,
     "RUN_LINTER" : 0,
-    "GRT_ADJUSTMENT" : 0.25
+    "GRT_ADJUSTMENT" : 0.25,
+    "IO_SYNC": 0,
+    "BASE_SDC_FILE": "dir::base_user_proj_example.sdc",
+    "RT_MAX_LAYER": "met4",
+    "FP_SIZING": "absolute",
+    "DIE_AREA": "0 0 300 300"
 }
